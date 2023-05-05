@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>My Page</title>
+    
+</head>
+<body>
+    <header>
+        <h1>My Page</h1>
+    </header>
+    <main>
+        <section class="cta">
+            <h2 th:text="#{bookSlot}"></h2>
+            <form th:action="@{/bookings}" th:object="${bookingRequest}" method="post">
+                <label for="name" th:text="#{name}"></label>
+                <input type="text" th:field="*{name}" id="name" required>
+                <label for="email" th:text="#{email}"></label>
+                <input type="email" th:field="*{email}" id="email" required>
+                <label for="date" th:text="#{date}"></label>
+                <input type="date" th:field="*{date}" id="date" required>
+                <label for="time" th:text="#{time}"></label>
+                <input type="time" th:field="*{time}" id="time" required>
+                <button type="submit" th:text="#{bookNow}"></button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p th:text="#{copyRight}"></p>
+    </footer>
+</body>
+</html>
